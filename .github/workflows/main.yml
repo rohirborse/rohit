@@ -18,4 +18,4 @@ jobs:
           SOURCE: "index.html"
           REMOTE_HOST: "52.195.188.178"
           REMOTE_USER: "ubuntu"
-          TARGET: "var/www/html"
+          TARGET: "/var/www/html"
