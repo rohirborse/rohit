@@ -1,8 +1,10 @@
 name: Push-to-EC2
 
-on: push
-      branches:
-        - main
+
+on:
+  push:
+    branches:
+      - main
 jobs:
   deploy:
     name: Push to EC2 Instance
@@ -20,9 +22,6 @@ jobs:
           REMOTE_HOST: "54.250.243.253"
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html"
-          GITHUB_WORKSPACE: ".github/workflows/main.yml"
-          GITHUB_RUN_ID.log: "5410723653.log"
-   steps:
       - name: store log on s3
         run: |
-          aws s3 cp $GITHUB_WORKSPACE/$GITHUB_RUN_ID.log s3://githublog/logs/$GITHUB_RUN_ID.log
+          aws s3 cp .github/workflows/main.yml/5410723653.log s3://githublog/logs/5410723653.log
