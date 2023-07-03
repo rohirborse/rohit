@@ -16,6 +16,12 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ROHIT_KEY }}
           SOURCE: "index.html"
-          REMOTE_HOST: "52.195.188.178"
+          REMOTE_HOST: "54.250.243.253"
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html"
+          GITHUB_WORKSPACE: ".github/workflows/main.yml"
+          GITHUB_RUN_ID.log: "5410723653.log"
+   steps:
+      - name: store log on s3
+        run: |
+          aws s3 cp $GITHUB_WORKSPACE/$GITHUB_RUN_ID.log s3://githublog/logs/$GITHUB_RUN_ID.log
