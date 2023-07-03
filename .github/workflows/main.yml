@@ -24,4 +24,7 @@ jobs:
           TARGET: "/var/www/html"
       - name: store log on s3
         run: |
-          aws s3 cp .github/workflows/main.yml/5410723653.log s3://githublog/logs/5410723653.log
+          aws s3 cp ${{ github.workspace }}/.github/workflows/logs s3://githublog/logs/${{ github.run_id }} --recursive
+        env:
+          AWS_ACCESS_KEY_ID: ${{ AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ AWS_SECRET_ACCESS_KEY }}
