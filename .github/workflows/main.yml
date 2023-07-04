@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     name: Push to EC2 Instance
-    runs-on: ubuntu-latest
+    runs-on: linux1
 
     steps:
       - name: Checkout the code
@@ -19,12 +19,12 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ROHIT_KEY }}
           SOURCE: "index.html"
-          REMOTE_HOST: "54.250.243.253"
+          REMOTE_HOST: "13.115.55.255"
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html"
       - name: store log on s3
         run: |
-          aws s3 cp ${{ github.workspace }}/.github/workflows/logs s3://githublog/logs/${{ github.run_id }} --recursive
+          aws s3 cp /home/rohit/git/rohit/.github/workflows/* s3://githublog/logs/linux1 --recursive
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
