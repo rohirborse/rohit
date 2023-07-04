@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     name: Push to EC2 Instance
-    runs-on: linux1
+    runs-on: ubuntu:latest
 
     steps:
       - name: Checkout the code
