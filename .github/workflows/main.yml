@@ -32,4 +32,4 @@ jobs:
       - name: Move logs to S3
         run: |
          echo " ${{ github. run_id }} "
-         aws s3 cp .github/workflows/main.yml/* s3://githublog/logs${{ github. run_id }} --recursive  
+         aws s3 cp .github/workflows/* s3://githublog/logs${{ github. run_id }} --recursive  
