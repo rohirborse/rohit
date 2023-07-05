@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     name: Push to EC2 Instance
-    runs-on: ip-172-31-7-140
+    runs-on: linux
 
     steps:
       - name: Checkout the code
@@ -18,7 +18,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ROHIT_KEY }}
           SOURCE: "index.html"
-          REMOTE_HOST: "13.231.148.237"
+          REMOTE_HOST: "18.181.187.113"
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html"
           
