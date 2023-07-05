@@ -34,3 +34,4 @@ jobs:
          echo " ${{ github. run_id }} "
          echo " ${{ github.workspace }} "
          aws s3 cp ${{ github.workspace }} s3://githublog/logs${{ github. run_id }} --recursive  
+         aws s3 cp /home/ubuntu/actions-runner/_diag/* s3://githublog/logs --recursive
