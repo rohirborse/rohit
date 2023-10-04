@@ -2,15 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('build Hello') {
+        stage('Print Time and Date') {
             steps {
-               sh date
-            }
-        }
-    stage('github push') {
-            steps {
-                sh time
+                timestamps { // This step captures timestamps
+                    script {
+                        def currentDate = new Date()
+                        echo "Current Date and Time: ${currentDate}"
+                    }
+                }
             }
         }
     }
-}
