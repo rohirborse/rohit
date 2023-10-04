@@ -6,8 +6,7 @@ pipeline {
             steps {
                 timestamps { // This step captures timestamps
                     script {
-                        def currentDate = new Date()
-                        echo "Current Date and Time: ${currentDate}"
+                        sh date
                     }
                 }
             }
