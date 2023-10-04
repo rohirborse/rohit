@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('build Hello') {
             steps {
-                echo 'Hello, World!'
+               sh date
             }
         }
     stage('github push') {
             steps {
-                echo 'Hello, github!'
+                sh time
             }
         }
     }
